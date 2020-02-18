@@ -109,4 +109,26 @@ router.post("/login", (req, res) => {
   });
 });
 
+
+// @route GET api/personals/:id
+// @description Get single personal by id
+// @access Public
+router.get('/detail/:id', (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err => res.status(404).json({ nopersonalfound: 'Not user found' }));
+});
+
+// @route GET api/tasks/:id
+// @description Update task
+// @access Public
+router.put('/update/:id', (req, res) => {
+  User.findByIdAndUpdate(req.params.id, req.body)
+    .then(user => res.json({ msg: 'Updated successfully' }))
+    .catch(err =>
+      res.status(400).json({ error: 'Unable to update the Database' }),
+    );
+});
+
+
 module.exports = router;
