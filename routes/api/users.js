@@ -12,6 +12,8 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 
+
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
@@ -90,6 +92,36 @@ router.post("/login", (req, res) => {
           gender: user.gender,
           email: user.email,
           title: user.title,
+          phone: user.phone,
+          whatsapp_phone: user.whatsapp_phone,
+          contact_address: user.contact_address,
+          pha: user.pha,
+          dob: user.dob,
+          wed_date: user.wed_date,
+          marital_status: user.marital_status,
+          work_status: user.work_status,
+          profession: user.profession,
+          employer_name: user.employer_name,
+          employer_address: user.employer_address,
+          state_origin: user.state_origin,
+          nationality: user.nationality,
+          nok_name: user.nok_name,
+          nok_address: user.nok_address,
+          nok_phone: user.nok_phone,
+          nok_occupation: user.nok_occupation,
+          nok_relation: user.nok_relation,
+          nok_email: user.nok_email,
+          membership_status: user.membership_status,
+          leadership_status: user.leadership_status,
+          sub_group: user.sub_group,
+          wsf_status: user.wsf_status,
+          new_birth_year: user.new_birth_year,
+          holy_spirit_year: user.holy_spirit_year,
+          lfc_joined_year: user.lfc_joined_year,
+          ordination_year: user.ordination_year,
+          province: user.province,
+          district: user.district,
+          zone: user.zone,
 
         };
 
