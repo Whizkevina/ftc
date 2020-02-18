@@ -23,6 +23,28 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  unit_id: {
+    type: String
+  },
+  title: {
+    type: String,
+    enum: ['Mr', 'Mrs', 'Dcn']
+  },
+  group: {
+    type: String
+  },
+  vocal_part: {
+    type: String,
+    enum: ['Alto', 'Suprano', 'tenor']
+  },
+  rehearsal_location: {
+    type: String,
+    enum: ['Iyana', 'Isashi']
+  },
+  gender: {
+    type: String,
+    enum: ['male', 'female']
+  },
   date: {
     type: Date,
     default: Date.now
