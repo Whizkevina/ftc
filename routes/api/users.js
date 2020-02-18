@@ -84,6 +84,13 @@ router.post("/login", (req, res) => {
           id: user.id,
           firstname: user.firstname,
           lastname: user.lastname,
+          unit_id: user.unit_id,
+          rehearsal_location: user.rehearsal_location,
+          vocal_part: user.vocal_part,
+          gender: user.gender,
+          email: user.email,
+          title: user.title,
+
         };
 
         // Sign token
