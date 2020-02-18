@@ -1,12 +1,29 @@
+const createError = require('http-errors');
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cookieParser= require('cookie-parser');
+const cors = require('cors');
 const passport = require("passport");
 
 const users = require("./routes/api/users");
 const personals = require("./routes/api/personal");
 
 const app = express();
+
+// Setting the CORS to allow different origin of URI
+app.use(function(req, res, next) {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header(
+			'Access-Control-Allow-Headers',
+			'Origin, X-Requested-With, Content-Type, Accept',
+		);
+	next();
+});
+
+// enable cors
+app.use(cors());
+app.use(cookieParser());
 
 // Bodyparser middleware
 app.use(

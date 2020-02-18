@@ -83,7 +83,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           firstname: user.firstname,
-          lastname: user.lastname
+          lastname: user.lastname,
         };
 
         // Sign token
