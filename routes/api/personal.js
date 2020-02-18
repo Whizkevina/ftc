@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Load Contact model
-const Personals = require('../../Model/Personal');
+const Personals = require('../../models/Personal');
 
 // @route GET api/personals/test
 // @description tests  route
