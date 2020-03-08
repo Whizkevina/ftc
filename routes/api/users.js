@@ -162,16 +162,25 @@ router.get('/detail/:id', (req, res) => {
 // @route GET api/tasks/:id
 // @description Update task
 // @access Public
+// router.put('/update/:id', (req, res) => {
+//   User.findByIdAndUpdate(req.params.id, req.body)
+//     .then(user => {
+//       console.log('User with updated info', user);
+//       res.json({ user, msg: 'Updated successfully'})
+//     })
+//     .catch(err =>
+//       res.status(400).json({ error: 'Unable to update the Database' }),
+//     );
+// });
+
+
 router.put('/update/:id', (req, res) => {
-  User.findByIdAndUpdate(req.params.id, req.body)
-    .then(user => {
+  User.findByIdAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, user ) => {
+    if(err) res.status(400).json({ error: 'Unable to update the Database' });
+
       console.log('User with updated info', user);
       res.json({ user, msg: 'Updated successfully'})
-    })
-    .catch(err =>
-      res.status(400).json({ error: 'Unable to update the Database' }),
-    );
+  }); 
 });
-
 
 module.exports = router;
