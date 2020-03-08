@@ -67,8 +67,8 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
-  const password = req.body.password;
+  const { email, password } = req.body;
+  // const password = req.body.password;
 
   // Find user by email
   User.findOne({ email }).then(user => {
@@ -163,7 +163,10 @@ router.get('/detail/:id', (req, res) => {
 // @access Public
 router.put('/update/:id', (req, res) => {
   User.findByIdAndUpdate(req.params.id, req.body)
-    .then(user => res.json({ msg: 'Updated successfully' }))
+    .then(user => {
+      console.log('User with updated info', user);
+      res.json({ user, msg: 'Updated successfully'})
+    })
     .catch(err =>
       res.status(400).json({ error: 'Unable to update the Database' }),
     );
