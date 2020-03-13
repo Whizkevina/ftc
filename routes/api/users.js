@@ -85,7 +85,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id
           firstname: user.firstname,
-          lastname: user.lastname,
+          lastname: user.lastname
           // unit_id: user.unit_id,
           // rehearsal_location: user.rehearsal_location,
           // vocal_part: user.vocal_part,
@@ -135,8 +135,7 @@ router.post("/login", (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: "Bearer " + token,
-              user
+              token: "Bearer " + token
             });
           }
         );
