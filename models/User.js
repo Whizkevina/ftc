@@ -148,7 +148,9 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  passwordResetToken: { type: String, default: "" },
+  passwordResetExpires: { type: Date, default: Date("2020/06/06") },
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
