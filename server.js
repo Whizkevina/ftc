@@ -11,6 +11,9 @@ const personals = require("./routes/api/personal");
 
 const app = express();
 
+
+require("./startup/cors")(app);
+
 // Setting the CORS to allow different origin of URI
 app.use(function(req, res, next) {
 	res.header('Access-Control-Allow-Origin', '*');
