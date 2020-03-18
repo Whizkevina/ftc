@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
 
-const { Token } = require("../models/token");
+const { Token } = require("../../models/token");
 const moment = require("moment");
 moment().format();
 const crypto = require("crypto");
