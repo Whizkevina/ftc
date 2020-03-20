@@ -132,8 +132,7 @@ router.post("/login", (req, res) => {
           ordination_year: user.ordination_year,
           province: user.province,
           district: user.district,
-          zone: user.zone
-
+          zone: user.zone,
         };
 
         // Sign token

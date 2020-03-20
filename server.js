@@ -11,22 +11,23 @@ const personals = require("./routes/api/personal");
 
 const app = express();
 
+app.use(cors('*'));
 
-require("./startup/cors")(app);
+// require("./startup/cors")(app);
 
 // Setting the CORS to allow different origin of URI
-app.use(function(req, res, next) {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header(
-			'Access-Control-Allow-Headers',
-      'Access-Control-Allow-Origin',
-			'Origin, X-Requested-With, Content-Type, Accept',
-		);
-	next();
-});
+// app.use(function(req, res, next) {
+// 	res.header('Access-Control-Allow-Origin', '*');
+// 	res.header(
+// 			'Access-Control-Allow-Headers',
+//       'Access-Control-Allow-Origin',
+// 			'Origin, X-Requested-With, Content-Type, Accept',
+// 		);
+// 	next();
+// });
+
 
 // enable cors
-app.use(cors());
 app.use(cookieParser());
 
 // Bodyparser middleware
