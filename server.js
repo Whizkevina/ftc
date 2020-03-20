@@ -8,6 +8,9 @@ const passport = require("passport");
 
 const users = require("./routes/api/users");
 const personals = require("./routes/api/personal");
+const forgetpassword = require("./routes/api/forgetpassword");
+const resetPassword = require("./routes/api/resetpassword");
+const updatePasswordViaEmail = require("./routes/api/updatePasswordViaEmail");
 
 const app = express();
 
@@ -60,6 +63,10 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 
 app.use("/api/personal", personals);
+
+app.use("/forgetpassword", forgetpassword);
+app.use("/resetpassword", resetPassword);
+app.use("/update-password-email", updatePasswordViaEmail);
 
 const port = process.env.PORT || 5000;
 
