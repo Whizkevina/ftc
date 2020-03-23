@@ -64,10 +64,20 @@ app.use("/api/users", users);
 
 app.use("/api/personal", personals);
 
-app.use("/forgetpassword", forgetpassword);
-app.use("/resetpassword", resetPassword);
-app.use("/update-password-email", updatePasswordViaEmail);
+app.use("/api/forgetpassword", forgetpassword);
+app.use("/api/resetpassword", resetPassword);
+app.use("/api/update-password-email", updatePasswordViaEmail);
 
 const port = process.env.PORT || 5000;
+
+// Server static assets if in production
+// if (process.env.NODE_ENV === 'production') {
+//   // Set static folder
+//   app.use(express.static('client/build'));
+
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

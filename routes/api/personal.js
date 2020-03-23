@@ -7,6 +7,7 @@ const Personals = require('../../models/Personal');
 // @route GET api/personals/test
 // @description tests  route
 // @access Public
+
 router.get('/test', (req, res) => res.send('personal route testing!'));
 
 // @route GET api/personals

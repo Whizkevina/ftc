@@ -1,25 +1,28 @@
-import crypto from 'crypto';
+const express = require("express");
+const router = express.Router();
+
+const crypto = require('crypto');
 const { Token } = require("../../models/token");
-const moment = require("moment");
-moment().format();
+// const moment = require("moment");
+// moment().format();
+// const dotenv = require('dotenv');
 
 const User = require("../../models/User");
 
-require('dotenv').config();
+// require('dotenv').config();
 
 const nodemailer = require('nodemailer');
 
-module.exports = (app) => {
-	app.post('/forgetPassword', (req, res) => {
+// testing route api
+router.get('/test', (req, res) => res.send('forgetpassword route testing!'));
+
+// module.exports = (app) => {
+	router.post('/', (req, res) => {
 		if (req.body.email === '') {
 			res.status(400).send('email required');
 		}
 		console.log(req.body.email);
-		User.findOne({
-			where: {
-				email: req.body.email,
-			},
-		}).then((user) => {
+		User.findOne({ email: req.body.email }).then((user) => {
 			if (user === null) {
 				console.log('email not in database');
 				res.status(403).send('email not in db');
@@ -63,4 +66,4 @@ module.exports = (app) => {
 
 		});
 	});
-};
+module.exports = router;

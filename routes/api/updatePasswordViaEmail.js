@@ -2,7 +2,7 @@ const { Token } = require("../../models/token");
 const moment = require("moment");
 moment().format();
 
-import bcrypt from 'bcrypt';
+const bcrypt = require('bcryptjs');
 const User = require("../../models/User");
 
 const BCRYPT_SALT_ROUNDS = 12;
@@ -13,7 +13,7 @@ module.exports = app => {
 				email: req.body.email,
 			},
 		}).then(user => {
-			if (user /== null) {
+			if (user !== null) {
 				console.log('user exists in db');
 				bcrypt
 					.hash(req.body.password, BCRYPT_SALT_ROUNDS)
